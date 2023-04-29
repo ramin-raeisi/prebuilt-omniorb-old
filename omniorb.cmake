@@ -13,9 +13,6 @@ endif(${AZI_STATIC_LIBS})
     
 include_directories( ${OMNIORB_INCLUDE} ${CMAKE_CURRENT_BINARY_DIR} )
 
-macro(AziOmniOrb)
-endmacro(AziOmniOrb)
-
 #
 # OmniIdl( output_files input1.idl input2.idl ... )
 #
@@ -32,3 +29,6 @@ MACRO( OmniIdl _outlist )
     #set( ${_outlist} ${${_outlist}} ${CMAKE_CURRENT_BINARY_DIR}/${_idl_result} ${CMAKE_CURRENT_BINARY_DIR}/${_idl_result_h} )
   endforeach( f )
 ENDMACRO( OmniIdl )
+
+macro(AziOmniOrb)
+endmacro(AziOmniOrb)
