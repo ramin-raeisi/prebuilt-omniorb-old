@@ -1,7 +1,7 @@
 find_path(OMNIORB_INCLUDE omniORB4/omniORB.h ${CMAKE_CURRENT_LIST_DIR}/include)
   
 find_path(OMNIORB_LIB omniORB4.lib ${CMAKE_CURRENT_LIST_DIR}/lib/amd64_win64)
-find_program(OMNIORB_IDL omniidl.exe ${CMAKE_CURRENT_LIST_DIR}/bin/x86_win32) #TODO: Why is it ´not using the one in 64 bit folder?
+find_program(OMNIORB_IDL omniidl.exe ${CMAKE_CURRENT_LIST_DIR}/bin/x86_win32) #TODO: Why is it Â´not using the one in 64 bit folder?
   
 add_definitions( -D__x86__ -D__NT__ -D__OSVERSION__=4 -D__WIN32__ )
 if(${AZI_STATIC_LIBS})
@@ -28,6 +28,7 @@ MACRO( OmniIdl _outlist )
     set_source_files_properties( ${_idl_result} PROPERTIES COMPILE_FLAGS /wd4267 )
     #set( ${_outlist} ${${_outlist}} ${CMAKE_CURRENT_BINARY_DIR}/${_idl_result} ${CMAKE_CURRENT_BINARY_DIR}/${_idl_result_h} )
   endforeach( f )
+  include_directories( ${CMAKE_CURRENT_BINARY_DIR} )
 ENDMACRO( OmniIdl )
 
 macro(AziOmniOrb)
